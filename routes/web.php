@@ -15,12 +15,22 @@
 //     return view('home');
 // });
 
-Route::get('/', 'PostController@index');
+use App\Http\Middleware\CekUsia;
+
+Route::get('/', 'HomeController@index');
 
 
 Route::get('/profile', function () {
     return view('profile');
 });
+
+Route::get('/xyz', function() {
+	return view ('xyz');
+})->middleware('auth');
+
+Route::get('/cekusia', function() {
+	return view ('usia');
+})->middleware(CekUsia::class);
 
 Route::get('/contact', function () {
     return view('contact');
@@ -28,4 +38,4 @@ Route::get('/contact', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'PostController@index')->name('home');
