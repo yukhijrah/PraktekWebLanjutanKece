@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+
+    @include('posts._messages')
+
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
                     <div class="col-md-10">
